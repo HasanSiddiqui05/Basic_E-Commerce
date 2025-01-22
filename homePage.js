@@ -10,7 +10,7 @@ async function dataFetch() {
         productsContainer.innerHTML = ''; 
 
         products.forEach((product) => {
-            const uniqueRatingContainerId = `rating-container-${product.id}`; // Unique ID for stars container
+            const uniqueRatingContainerId = `rating-container-${product.id}`;
 
             const productElement = document.createElement('div');
             productElement.classList.add('product');
@@ -53,13 +53,12 @@ function renderStarsWithCount(rating, count, containerId) {
         return;
     }
 
-    container.innerHTML = ''; // Clear any existing stars
+    container.innerHTML = ''; 
 
     const fullStars = Math.floor(rating);
     const hasHalfStar = rating % 1 >= 0.5;
     const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
 
-    // Add full stars
     for (let i = 0; i < fullStars; i++) {
         const star = document.createElement('span');
         star.classList.add('star', 'filled');
@@ -67,7 +66,6 @@ function renderStarsWithCount(rating, count, containerId) {
         container.appendChild(star);
     }
 
-    // Add half star if applicable
     if (hasHalfStar) {
         const star = document.createElement('span');
         star.classList.add('star', 'half-filled');
@@ -75,7 +73,6 @@ function renderStarsWithCount(rating, count, containerId) {
         container.appendChild(star);
     }
 
-    // Add empty stars
     for (let i = 0; i < emptyStars; i++) {
         const star = document.createElement('span');
         star.classList.add('star');
@@ -89,5 +86,4 @@ function renderStarsWithCount(rating, count, containerId) {
     container.appendChild(ratingCount);
 }
 
-// Fetch and display data when the page loads
 dataFetch();

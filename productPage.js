@@ -101,6 +101,6 @@ function addToCart() {
 }
 
 function redirectToHome(){
-    window.location.href = "homePage.html";
+    window.location.href = "index.html";
 }
 
